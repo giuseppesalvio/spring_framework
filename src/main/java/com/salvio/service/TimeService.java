@@ -1,6 +1,5 @@
 package com.salvio.service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -11,12 +10,12 @@ public class TimeService {
 
     private final boolean is24;
 
-    public TimeService(boolean is24){
+    public TimeService(boolean is24) {
         this.is24 = is24;
     }
 
 
-    public String getCurrentTime(){
+    public String getCurrentTime() {
         LocalDateTime now = LocalDateTime.now();
         if (is24) {
             return FORMATTER_24.format(now);
