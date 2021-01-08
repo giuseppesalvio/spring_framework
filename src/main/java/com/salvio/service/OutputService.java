@@ -1,5 +1,6 @@
 package com.salvio.service;
 
+import com.salvio.aspect.Countable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class OutputService {
         this.timeService = timeService;
     }
 
+    @Countable
     public void generateOutput() {
         String output = timeService.getCurrentTime() + " " + greetingService.getGreeting(name);
         System.out.println(output);
