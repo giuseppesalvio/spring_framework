@@ -11,9 +11,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApplicationConfig {
 
-    @Value("Hello")
-    private String greeting;
-
     @Autowired
     private GreetingService greetingService;
     @Autowired
