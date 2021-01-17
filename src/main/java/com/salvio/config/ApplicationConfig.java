@@ -13,28 +13,27 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:application.properties")
 public class ApplicationConfig {
 
-    @Value("${app.greeting}")
-    private String greeting;
-    @Value("${app.name}")
-    private String name;
+  @Value("${app.greeting}")
+  private String greeting;
 
-    @Autowired
-    private GreetingService greetingService;
-    @Autowired
-    private TimeService timeService;
+  @Value("${app.name}")
+  private String name;
 
-    @Bean
-    public TimeService timeService() {
-        return new TimeService(true);
-    }
+  @Autowired private GreetingService greetingService;
+  @Autowired private TimeService timeService;
 
-    @Bean
-    public OutputService outputService() {
-        return new OutputService(greetingService, timeService, name);
-    }
+  @Bean
+  public TimeService timeService() {
+    return new TimeService(true);
+  }
 
-    @Bean
-    public GreetingService greetingService() {
-        return new GreetingService(greeting);
-    }
+  @Bean
+  public OutputService outputService() {
+    return new OutputService(greetingService, timeService, name);
+  }
+
+  @Bean
+  public GreetingService greetingService() {
+    return new GreetingService(greeting);
+  }
 }
